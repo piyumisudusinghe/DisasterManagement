@@ -1,5 +1,7 @@
 package com.example.piumi.disaster_management;
 
+import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,22 +18,14 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -80,19 +74,53 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+       if (id == R.id.nav_account) {
+          //Intent account = new Intent(MainActivity.this,Account.class);
+          // startActivity(account);
+           //Intent login = new Intent(MainActivity.this,Main2Activity.class);
+           //startActivity(login);
+           //Intent map = new Intent(MainActivity.this,Map.class);
+           //startActivity(map);
+           Intent intent = new Intent(MainActivity.this,AccountSettings.class);
+           startActivity(intent);
 
-        } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_map_view) {
+           Intent map = new Intent(MainActivity.this,Map.class);
+           startActivity(map);
 
-        } else if (id == R.id.nav_send) {
+          
 
-        }
+        } else if (id == R.id.nav_alert_list) {
+           Intent alert = new Intent(MainActivity.this,Alert.class);
+           startActivity(alert);
+
+
+        } else if (id == R.id.nav_hazards) {
+           Intent hazard = new Intent(MainActivity.this,Hazard.class);
+           startActivity(hazard);
+
+
+        } else if (id == R.id.nav_question_forum) {
+           Intent qa = new Intent(MainActivity.this,QA.class);
+           startActivity(qa);
+
+
+        } else if (id == R.id.nav_help_line) {
+           Intent help = new Intent(MainActivity.this,Help.class);
+           startActivity(help);
+
+
+        }else if (id == R.id.nav_about_us) {
+           Intent aboutus = new Intent(MainActivity.this,Aboutus.class);
+           startActivity(aboutus);
+
+
+        }else if (id == R.id.nav_feedback) {
+           Intent feedback = new Intent(MainActivity.this, Feedback.class);
+           startActivity(feedback);
+       }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "499428376216",
+    "firebase_url": "https://disaster-management-syst-e1feb.firebaseio.com",
+    "project_id": "disaster-management-syst-e1feb",
+    "storage_bucket": "disaster-management-syst-e1feb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499428376216:android:ccec4b51707f6145",
+        "android_client_info": {
+          "package_name": "com.example.piumi.disaster_management"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "499428376216-l3jsq2nrl2iiuujn6j7vjct76jjposf9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.piumi.disaster_management",
+            "certificate_hash": "57b66e133605174cf5d35a602418b4b5816bd3d9"
+          }
+        },
+        {
+          "client_id": "499428376216-mllv4jadf7tm29bcmg3hq2vu5hr5tp7a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpnt1U73fUV6NB7c6eRdWqAAH9rJ97HVQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "499428376216-mllv4jadf7tm29bcmg3hq2vu5hr5tp7a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

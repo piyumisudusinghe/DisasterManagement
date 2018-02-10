@@ -5,4 +5,53 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_account">Account</string>
+    <string name="title_activity_map">Map</string>
+    <string name="title_activity_aboutus">Aboutus</string>
+    <string name="title_activity_alert">Alert</string>
+    <string name="title_activity_feedback">Feedback</string>
+    <string name="title_activity_hazard">Hazard</string>
+    <string name="title_activity_help">Help</string>
+    <string name="title_activity_q">QA</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <!-- Strings related with the login and register-->
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="confirmpassword_hint">Confirm Password</string>
+    <string name="firstname">First Name</string>
+    <string name="lastname">Last Name</string>
+    <string name="register">Register</string>
+    <string name="resetPwd">Reset Password</string>
+    <string name="cancel">Cancel</string>
+
+
+    <!-- Strings related with the account settings-->
+    <string name="account">Account</string>
+    <string name="subscription">Subscription</string>
+    <string name="preference">Preference</string>
+    <string name="guestuser">Guest User</string>
+    <string name="loginregiater">Login or Register</string>
+    <string name="alert">Disaster Alerts</string>
+    <string name="starttip"> Start Tip</string>
+    <string name="pushnotification">Push Notification</string>
+    <string name="title_activity_show_map">Map</string>
+
 </resources>
