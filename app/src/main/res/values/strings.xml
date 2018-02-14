@@ -41,7 +41,11 @@
     <string name="register">Register</string>
     <string name="resetPwd">Reset Password</string>
     <string name="cancel">Cancel</string>
-
+    <string name="create_account">Create an account</string>
+    <string name="remember_me">Remember me</string>
+    <string name="username">username</string>
+    <string name="pwdhint">........</string>
+    <string name="login">LOGIN</string>
 
     <!-- Strings related with the account settings-->
     <string name="account">Account</string>
@@ -53,5 +57,12 @@
     <string name="starttip"> Start Tip</string>
     <string name="pushnotification">Push Notification</string>
     <string name="title_activity_show_map">Map</string>
+    <string name="title_activity_main4">Main4Activity</string>
+    <string name="todo">TODO</string>
+
+    <!-- Strings related with the forgot password-->
+    <string name="forgotpwd">Forgot Password?</string>
+    <string name="forgotpwd_string">We just need your registered email to sent you password reset instructions</string>
+
 
 </resources>
