@@ -43,7 +43,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/email"
+        android:id="@+id/reg_email"
         android:hint="@string/email_hint"
         android:inputType="textEmailAddress"
         android:maxLines="1"
@@ -57,7 +57,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/password"
+        android:id="@+id/reg_password"
         android:hint="@string/password_hint"
         android:inputType="textPassword"
         android:maxLines="1"
@@ -67,7 +67,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_8sdp"
         android:singleLine="true"
-        android:layout_below="@+id/email"/>
+        android:layout_below="@+id/reg_email"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -82,7 +82,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_8sdp"
         android:singleLine="true"
-        android:layout_below="@+id/password"/>
+        android:layout_below="@+id/reg_password"/>
 
 
     <Button
