@@ -63,6 +63,7 @@
     <!-- Strings related with the forgot password-->
     <string name="forgotpwd">Forgot Password?</string>
     <string name="forgotpwd_string">We just need your registered email to sent you password reset instructions</string>
+    <string name="title_activity_maps">Map</string>
 
 
 </resources>

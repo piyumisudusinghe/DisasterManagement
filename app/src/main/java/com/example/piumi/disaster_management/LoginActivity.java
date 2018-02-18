@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main6);
+        setContentView(R.layout.activity_login);
         firebaseAuth =  FirebaseAuth.getInstance();
         btnCreateAccount =  findViewById(R.id.btn_createAccount);
         btnForgetPwd=findViewById(R.id.btn_forgotPwd);

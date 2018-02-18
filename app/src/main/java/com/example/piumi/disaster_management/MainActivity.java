@@ -1,5 +1,6 @@
 package com.example.piumi.disaster_management;
 
+import android.support.v4.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
@@ -87,8 +88,11 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_map_view) {
-           Intent map = new Intent(MainActivity.this,Map.class);
+           Intent map = new Intent(MainActivity.this,MapNewActivity.class);
            startActivity(map);
+           /*MapViewFragment mapViewFragment = new MapViewFragment();
+           FragmentManager fragmentManager = getSupportFragmentManager();
+           fragmentManager.beginTransaction().replace(R.id.mainLayout,mapViewFragment).commit();*/
 
           
 
