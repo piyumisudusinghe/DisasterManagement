@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.piumi.disaster_management">
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
@@ -24,7 +25,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
+            android:label="@string/MainActivityName"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,7 +35,7 @@
         </activity>
         <activity
             android:name=".Aboutus"
-            android:label="@string/title_activity_aboutus"
+            android:label="@string/AboutUsActivityName"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,7 +45,7 @@
         </activity>
         <activity
             android:name=".Alert"
-            android:label="@string/title_activity_alert"
+            android:label="@string/AlertsActivityName"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -58,7 +59,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Hazard"
-            android:label="@string/title_activity_hazard"
+            android:label="@string/HazradsActivityName"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Help"
@@ -103,6 +104,32 @@
             </intent-filter>
         </activity>
         <activity android:name=".MapNewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service android:name=".DMSFirebaseInstanceService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".DMSGetFirebaseMessageService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".Single_DisasterActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ChatMine">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

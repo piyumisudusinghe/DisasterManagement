@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2.5dp"
+        android:layout_marginBottom="2.5dp"
+        android:background="#65cee6"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/unique_disaster_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:textColor="#5a188f"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            />
+
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -6,6 +6,14 @@
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_login">Sign in</string>
+    <!-- Strings related with the Top bar anmes-->
+    <string name="MainActivityName"> Disaster Alerts</string>
+    <string name="HazradsActivityName">Hazards</string>
+    <string name="MapActivityName">Map View</string>
+    <string name="AccountActivityName">Account</string>
+    <string name="AlertsActivityName">Alert List</string>
+    <string name="AboutUsActivityName">About Us</string>
+    <string name="HelplineActivityName">Help Line</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>

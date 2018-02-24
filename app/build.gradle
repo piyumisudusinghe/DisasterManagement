@@ -33,5 +33,13 @@ dependencies {
     compile 'com.google.firebase:firebase-storage:11.8.0'
     compile 'com.google.firebase:firebase-auth:11.8.0'
     compile 'com.google.firebase:firebase-crash:11.8.0'
+    compile 'com.google.firebase:firebase-messaging:11.8.0'
+
+    // okhttp
+    compile 'com.squareup.okhttp3:okhttp:3.9.1'
+    // event bus
+    compile 'org.greenrobot:eventbus:3.1.1'
+
+
 }
 apply plugin: 'com.google.gms.google-services'

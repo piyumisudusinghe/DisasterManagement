@@ -1,12 +1,8 @@
 package com.example.piumi.disaster_management;
 
-import android.support.v4.app.FragmentManager;
-import android.app.FragmentTransaction;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -27,6 +23,8 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //make the object of the drawer layout and display it
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -36,6 +34,8 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
+
 
     @Override
     public void onBackPressed() {
@@ -56,12 +56,8 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
         }
@@ -75,13 +71,8 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        //select the relevent when according to the click event of the user in navigation window
        if (id == R.id.nav_account) {
-          //Intent account = new Intent(MainActivity.this,Account.class);
-          // startActivity(account);
-           //Intent login = new Intent(MainActivity.this,Main2Activity.class);
-           //startActivity(login);
-           //Intent map = new Intent(MainActivity.this,Map.class);
-           //startActivity(map);
            Intent intent = new Intent(MainActivity.this,AccountSettings.class);
            startActivity(intent);
 
@@ -90,11 +81,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_map_view) {
            Intent map = new Intent(MainActivity.this,MapNewActivity.class);
            startActivity(map);
-           /*MapViewFragment mapViewFragment = new MapViewFragment();
-           FragmentManager fragmentManager = getSupportFragmentManager();
-           fragmentManager.beginTransaction().replace(R.id.mainLayout,mapViewFragment).commit();*/
 
-          
 
         } else if (id == R.id.nav_alert_list) {
            Intent alert = new Intent(MainActivity.this,Alert.class);

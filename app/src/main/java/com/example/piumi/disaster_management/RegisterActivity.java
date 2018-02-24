@@ -9,10 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
-
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -40,36 +37,38 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private DatabaseReference databaseReference;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register2);
 
+        //create firebase instance
         firebaseAuth = FirebaseAuth.getInstance();
+        //create firebase database instance
         database = FirebaseDatabase.getInstance();
+        //get the mobile_user table  reference
         databaseReference = database.getReference("mobile_user");
 
         TAG = RegisterActivity.class.getName();
 
+        //achieving the elements in the register window
         txtEmail = (EditText)findViewById(R.id.reg_email);
         txtPwd = (EditText)findViewById(R.id.reg_password);
         firstName = (EditText)findViewById(R.id.firstname);
         lastName = (EditText)findViewById(R.id.lastname);
         confirmPwd = (EditText)findViewById(R.id.confirm_password);
-
         btnRegister = findViewById(R.id.register_btn);
-        btnRegister.setOnClickListener(this);
-
         btn_cancel = findViewById(R.id.cancel_btn);
+
+        //setting onclick listners
+        btnRegister.setOnClickListener(this);
         btn_cancel.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
 
+        switch (view.getId()){
             case R.id.register_btn:
                 registerUser();
                 break;
@@ -88,7 +87,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     public void registerUser(){
-        String email = txtEmail.getText().toString().trim();
+        final String email = txtEmail.getText().toString().trim();
         String password = txtPwd.getText().toString().trim();
         String confirm_password = confirmPwd.getText().toString().trim();
         final String firstname = firstName.getText().toString().trim();
@@ -111,17 +110,23 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         }
 
-        if(TextUtils.isEmpty(confirm_password)){
-            Toast.makeText(this,"Please enter password again",Toast.LENGTH_SHORT).show();
-            return;
-
-        }
-
-
         if(TextUtils.isEmpty(password)){
             Toast.makeText(this,"Please enter password",Toast.LENGTH_SHORT).show();
             return;
+        }else{
+            if(password.length()<=7) {
+                Toast.makeText(this,"Please enter password with more than 7 characters",Toast.LENGTH_SHORT).show();
+                return;
+            }
         }
+
+        if(TextUtils.isEmpty(confirm_password)){
+            Toast.makeText(this,"Please enter password again",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+
+
 
 
         firebaseAuth.createUserWithEmailAndPassword(email, password)
@@ -129,16 +134,19 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
+                            // call the function to verify the given email address
                             verifyEmail();
+
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = firebaseAuth.getCurrentUser();
-                            //updateUI(user);
                             String user_id = user.getUid();
                             databaseReference = database.getReference("mobile_user/"+user_id);
                             HashMap<String, String> map = new HashMap<String, String>();
                             map.put("first_name",firstname);
                             map.put("last_name",lastname);
+                            map.put("email",email);
+
+                            //add login detail to the database
                             databaseReference.setValue(map);
 
                         } else {
