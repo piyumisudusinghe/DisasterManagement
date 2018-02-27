@@ -4,17 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#9d15aad2"
-    tools:context="com.example.piumi.disaster_management.user_guide.Single_DisasterActivity">
-
-
-
-    <ListView
-        android:id="@+id/single_disaster_listview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-    </ListView>
-
+    tools:context="com.example.piumi.disaster_management.question_forum.SingleChat">
 
 </android.support.constraint.ConstraintLayout>

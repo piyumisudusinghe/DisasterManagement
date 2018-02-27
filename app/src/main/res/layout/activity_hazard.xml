@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.piumi.disaster_management.Hazard">
+    tools:context="com.example.piumi.disaster_management.user_guide.Hazard">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -22,6 +22,7 @@
 
 
     <ListView
+        android:layout_marginTop="63dp"
         android:id="@+id/list_disaster"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">

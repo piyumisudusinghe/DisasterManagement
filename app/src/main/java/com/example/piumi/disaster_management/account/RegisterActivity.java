@@ -1,4 +1,4 @@
-package com.example.piumi.disaster_management;
+package com.example.piumi.disaster_management.account;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.piumi.disaster_management.MainActivity;
+import com.example.piumi.disaster_management.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -136,7 +139,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         if (task.isSuccessful()) {
                             // call the function to verify the given email address
                             verifyEmail();
-
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = firebaseAuth.getCurrentUser();
                             String user_id = user.getUid();
@@ -148,6 +150,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
                             //add login detail to the database
                             databaseReference.setValue(map);
+                            Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
+                            startActivity(intent);
+                            Toast.makeText(RegisterActivity.this, "You have registered successfully",
+                                    Toast.LENGTH_SHORT).show();
 
                         } else {
 
@@ -163,6 +169,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 });
     }
 
+
+    //do email verification when new user is login to the system
     public void verifyEmail(){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user!= null){

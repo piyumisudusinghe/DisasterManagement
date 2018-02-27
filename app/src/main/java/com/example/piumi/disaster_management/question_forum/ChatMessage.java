@@ -1,9 +1,10 @@
-package com.example.piumi.disaster_management;
+package com.example.piumi.disaster_management.question_forum;
 
 import java.util.Date;
 
 /**
  * Created by Piumi on 2/20/2018.
+ * This is java class used to get the detaills of the chats
  */
 
 public class ChatMessage {

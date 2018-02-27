@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.piumi.disaster_management.QA"
+    tools:context="com.example.piumi.disaster_management.question_forum.QA"
     tools:showIn="@layout/activity_q">
 
 </android.support.constraint.ConstraintLayout>

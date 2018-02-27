@@ -1,14 +1,14 @@
-package com.example.piumi.disaster_management;
+package com.example.piumi.disaster_management.user_guide;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import com.example.piumi.disaster_management.R;
 
 public class Hazard extends AppCompatActivity {
 

@@ -12,6 +12,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.piumi.disaster_management.account.AccountSettings;
+import com.example.piumi.disaster_management.map.MapNewActivity;
+import com.example.piumi.disaster_management.question_forum.QA;
+import com.example.piumi.disaster_management.user_guide.Hazard;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 

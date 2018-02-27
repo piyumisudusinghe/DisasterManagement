@@ -1,4 +1,4 @@
-package com.example.piumi.disaster_management;
+package com.example.piumi.disaster_management.user_guide;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.piumi.disaster_management.R;
 
 /**
  * Created by Piumi on 2/18/2018.

@@ -1,4 +1,4 @@
-package com.example.piumi.disaster_management;
+package com.example.piumi.disaster_management.question_forum;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;
@@ -10,10 +10,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.piumi.disaster_management.R;
+
 import java.util.ArrayList;
 
 /**
  * Created by Piumi on 2/24/2018.
+ * This is java class to show the available admins in a list
  */
 
 public class AdminUserList extends ArrayAdapter{
@@ -44,7 +47,7 @@ public class AdminUserList extends ArrayAdapter{
             viewHolder = (ViewHolder)r.getTag();
         }
 
-
+        //set values to the elemnts in the xml file
         viewHolder.tvw1.setText(useremail.get(position));
         viewHolder.tvw2.setText(username.get(position));
         String firstletter = username.get(position).substring(0, 1);
@@ -53,6 +56,7 @@ public class AdminUserList extends ArrayAdapter{
         return r;
     }
 
+    //inner class is used to get the elements in the xml file
     class ViewHolder{
         TextView tvw1;
         TextView tvw2;

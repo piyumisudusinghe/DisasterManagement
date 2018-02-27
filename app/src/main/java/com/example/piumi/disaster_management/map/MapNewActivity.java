@@ -1,4 +1,4 @@
-package com.example.piumi.disaster_management;
+package com.example.piumi.disaster_management.map;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.piumi.disaster_management.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -30,6 +31,8 @@ public class MapNewActivity extends AppCompatActivity implements OnMapReadyCallb
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_new);
+
+        //create the map fragment
         SupportMapFragment mapFrag = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.mapnew);
         mapFrag.getMapAsync(this);
@@ -70,11 +73,14 @@ public class MapNewActivity extends AppCompatActivity implements OnMapReadyCallb
 
             Map singleLocation = (Map) entry.getValue();
             String name = entry.getKey().toLowerCase();
-            String locationName = singleLocation.toString();
+            String locationName = (String)singleLocation.get ("disaster");
+            String mapTittle = name +" - " + locationName;
             Double lat = (Double)singleLocation.get("lat");
             Double lng = (Double) singleLocation.get("long");
             LatLng pp = new LatLng(lat,lng);
-            map.addMarker(new MarkerOptions().position(pp).title(name));
+
+            //adding a marker to the location in the map
+            map.addMarker(new MarkerOptions().position(pp).title(mapTittle));
 
         }
 

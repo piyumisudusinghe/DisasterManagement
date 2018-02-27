@@ -1,4 +1,4 @@
-package com.example.piumi.disaster_management;
+package com.example.piumi.disaster_management.account;
 
 
 import android.content.Intent;
@@ -11,11 +11,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.piumi.disaster_management.MainActivity;
+import com.example.piumi.disaster_management.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 
 public class LoginActivity extends AppCompatActivity implements  View.OnClickListener{
@@ -28,15 +30,25 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
     private EditText txtEmail;
     private EditText txtPwd;
 
+    public static String getTAG () {
+        return TAG;
+    }
+
+    public static void setTAG ( String TAG ) {
+        LoginActivity.TAG = TAG;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         //creating the firebase instance
-        firebaseAuth =  FirebaseAuth.getInstance();
+        setFirebaseAuth (FirebaseAuth.getInstance());
 
         //achieve elements in the login window
+
+
         btnCreateAccount =  findViewById(R.id.btn_createAccount);
         btnForgetPwd=findViewById(R.id.btn_forgotPwd);
         btnLogin = findViewById(R.id.btn_login);
@@ -44,11 +56,11 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
         txtPwd = (EditText)findViewById(R.id.txt_pwd);
 
         //adding listners to the buttons
-        btnCreateAccount.setOnClickListener(this);
-        btnForgetPwd.setOnClickListener(this);
-        btnLogin.setOnClickListener(this);
+        getBtnCreateAccount ().setOnClickListener(this);
+        getBtnForgetPwd ().setOnClickListener(this);
+        getBtnLogin ().setOnClickListener(this);
 
-        TAG = LoginActivity.class.getName();
+        setTAG (LoginActivity.class.getName());
 
     }
 
@@ -74,8 +86,8 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
     }
 
     public void signUp(){
-        String email = txtEmail.getText().toString().trim();
-        String password = txtPwd.getText().toString().trim();
+        final String email = getTxtEmail ().getText().toString().trim();
+        String password = getTxtPwd ().getText().toString().trim();
 
         //check given fields are empty or not
         if(TextUtils.isEmpty(email)){
@@ -93,20 +105,21 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
 
 
         //get firebase instance and check the validity of given user credentilas
-        firebaseAuth.signInWithEmailAndPassword(email, password)
+        getFirebaseAuth ().signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithEmail:success");
+                            Log.d(getTAG (), "signInWithEmail:success");
                             Toast.makeText(LoginActivity.this, "Login is successfull.",
                                     Toast.LENGTH_SHORT).show();
-                            FirebaseUser user = firebaseAuth.getCurrentUser();
-                           // updateUI(user);
+                            //FirebaseUser user = firebaseAuth.getCurrentUser();
+
+                             updateUser(email);
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
+                            Log.w(getTAG (), "signInWithEmail:failure", task.getException());
                             Toast.makeText(LoginActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                             //updateUI(null);
@@ -117,6 +130,63 @@ public class LoginActivity extends AppCompatActivity implements  View.OnClickLis
     }
 
 
+    public void updateUser(String email){
+
+        Intent intent = new Intent (LoginActivity.this,MainActivity.class);
+        startActivity(intent);
+        //TextView txt = findViewById (R.id.usercircle);
+        //String firstletter = email.substring(0, 1).toUpperCase ();
+        //txt.setText (firstletter);
 
 
+    }
+
+
+    public Button getBtnCreateAccount () {
+        return btnCreateAccount;
+    }
+
+    public void setBtnCreateAccount () {
+        this.btnCreateAccount = btnCreateAccount;
+    }
+
+    public Button getBtnForgetPwd () {
+        return btnForgetPwd;
+    }
+
+    public void setBtnForgetPwd ( Button btnForgetPwd ) {
+        this.btnForgetPwd = btnForgetPwd;
+    }
+
+    public Button getBtnLogin () {
+        return btnLogin;
+    }
+
+    public void setBtnLogin ( Button btnLogin ) {
+        this.btnLogin = btnLogin;
+    }
+
+    public FirebaseAuth getFirebaseAuth () {
+        return firebaseAuth;
+    }
+
+    public void setFirebaseAuth ( FirebaseAuth firebaseAuth ) {
+        this.firebaseAuth = firebaseAuth;
+    }
+
+    public EditText getTxtEmail () {
+        return txtEmail;
+    }
+
+    public void setTxtEmail ( EditText txtEmail ) {
+        this.txtEmail = txtEmail;
+    }
+
+    public EditText getTxtPwd () {
+        return txtPwd;
+    }
+
+    public void setTxtPwd ( EditText txtPwd ) {
+        this.txtPwd = txtPwd;
+    }
 }

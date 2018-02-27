@@ -73,5 +73,12 @@
     <string name="forgotpwd_string">We just need your registered email to sent you password reset instructions</string>
     <string name="title_activity_maps">Map</string>
 
+    <!---String related with the hazards-->
+
+    <string name="drought">Drought</string>
+    <string name="intro">"Introduction:- This hazrds occur due to lack of rain and higher intensity of the sunlight. Main causes affects for this disaster is
+                     1.cutting down trees
+                     2.destrying the forests
+"</string>
 
 </resources>
