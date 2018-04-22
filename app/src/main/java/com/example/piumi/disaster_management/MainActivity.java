@@ -13,12 +13,39 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.piumi.disaster_management.account.AccountSettings;
-import com.example.piumi.disaster_management.map.MapNewActivity;
+import com.example.piumi.disaster_management.helpLine.HelpLine;
+import com.example.piumi.disaster_management.map.Map;
 import com.example.piumi.disaster_management.question_forum.QA;
 import com.example.piumi.disaster_management.user_guide.Hazard;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
+    private static final String TAG = "MainActivity";
+
+   /*@Override
+    protected void onResume() {
+        super.onResume();
+
+        // Getting reference to TextView to show the status
+       // TextView tvStatus = (TextView)findViewById(R.id.tv_status);
+
+        // Getting status
+        int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getBaseContext());
+
+        // Showing status
+        if(status== ConnectionResult.SUCCESS) {
+            Log.i(TAG, "onComplete: Done");
+            //tvStatus.setText("Google Play Services are available");
+        }else{
+            //tvStatus.setText("Google Play Services are not available");
+            int requestCode = 10;
+            Dialog dialog = GooglePlayServicesUtil.getErrorDialog(status, this, requestCode);
+            dialog.show();
+            finish ();
+        }
+    }*/
 
 
 
@@ -84,7 +111,7 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_map_view) {
-           Intent map = new Intent(MainActivity.this,MapNewActivity.class);
+           Intent map = new Intent(MainActivity.this,Map.class);
            startActivity(map);
 
 
@@ -104,11 +131,16 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_help_line) {
+           Intent help = new Intent(MainActivity.this,HelpLine.class);
+           startActivity(help);
+
+
+        }else if (id == R.id.nav_help) {
            Intent help = new Intent(MainActivity.this,Help.class);
            startActivity(help);
 
 
-        }else if (id == R.id.nav_about_us) {
+       }else if (id == R.id.nav_about_us) {
            Intent aboutus = new Intent(MainActivity.this,Aboutus.class);
            startActivity(aboutus);
 

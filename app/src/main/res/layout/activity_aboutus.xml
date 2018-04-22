@@ -1,27 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.piumi.disaster_management.Aboutus">
+    tools:context="com.example.piumi.disaster_management.Aboutus"
+    android:background="@drawable/register_background">
 
-    <android.support.design.widget.AppBarLayout
+
+
+    <ImageView
+        android:id="@+id/company_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/company_logo1"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="@dimen/_36sdp"/>
+
+
+    <TextView
+        android:id="@+id/company_name"
+        android:layout_below="@+id/company_logo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_marginTop="@dimen/_36sdp"
+        android:background="#2da4b1"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:text="Disaster-Alerts"
+        android:textAlignment="center"/>
+    <TextView
+        android:id="@+id/company_subname"
+        android:layout_below="@+id/company_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2da4b1"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:text="Disaster Management System"
+        android:textAlignment="center"/>
+    <TextView
+        android:layout_below = "@+id/company_subname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/_36sdp"
+        android:background="@drawable/about_us_background"
+        android:text="We are team of disaster management system.Our comany is combination of two institutions.Those are Ministry of Disaster Management and Department of Meteorology.
+Group of people who are selected from those organization are worked to provide this service."
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
+        android:textAlignment="center"/>
 
     <include layout="@layout/content_aboutus" />
 
 
 
-</android.support.design.widget.CoordinatorLayout>
+</RelativeLayout>

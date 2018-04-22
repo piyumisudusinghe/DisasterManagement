@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".helpLine.CallHelpLine">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/register_background">
+
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dial No."
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_32sdp"
+            android:textAllCaps="true"
+            android:textSize="@dimen/_20sdp"/>
+
+        <Button
+            style="@style/Base.TextAppearance.AppCompat.Body2"
+            android:id="@+id/btn_call"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="84dp"
+            android:text="call number"
+            android:clickable="true"
+            android:focusable="true"
+            android:textAllCaps="true"
+            android:textColor="#18e4da"
+            android:background="@color/colorWhite"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="15dp"/>
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_32sdp"
+            android:layout_below="@+id/textView1"
+            android:ems="10"
+            android:textAlignment="center"
+            android:editable="false">
+            <requestFocus />
+        </EditText>
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

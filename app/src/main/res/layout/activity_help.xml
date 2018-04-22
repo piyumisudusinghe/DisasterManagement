@@ -4,30 +4,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#62daaa"
     tools:context="com.example.piumi.disaster_management.Help">
 
-    <android.support.design.widget.AppBarLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:orientation="vertical">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:layout_height="wrap_content"
+            android:text="Help"
+            android:textAlignment="center"
+            android:textSize="@dimen/_36sdp"
+            android:textColor="#ffff"/>
+        <ImageView
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/logonew3"
+            android:layout_marginLeft="150dp"
 
-    </android.support.design.widget.AppBarLayout>
+            />
+        <TextView
+            android:clickable="true"
+            android:layout_marginTop="@dimen/_36sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/register_background"
+            android:textColor="#130e0e"
+            android:text="How login to the system?"/>
+        <TextView
+            android:clickable="true"
+            android:layout_marginTop="@dimen/_36sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/register_background"
+            android:textColor="#130e0e"
+            android:text="How use mapview?"/>
+
+        <TextView
+            android:clickable="true"
+            android:layout_marginTop="@dimen/_36sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/register_background"
+            android:textColor="#130e0e"
+            android:text="How get notifications from the system?"/>
+
+        <TextView
+            android:clickable="true"
+            android:layout_marginTop="@dimen/_36sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/register_background"
+            android:textColor="#130e0e"
+            android:text="Can we chat with other mobile users?"/>
+
+        <TextView
+            android:clickable="true"
+            android:layout_marginTop="@dimen/_36sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/register_background"
+            android:textColor="#130e0e"
+            android:text="Why admin marked question as invalid?"/>
+
+        <TextView
+            android:clickable="true"
+            android:layout_marginTop="@dimen/_36sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/register_background"
+            android:textColor="#130e0e"
+            android:text="Can use user guide offline?"/>
+
+    </LinearLayout>
+
 
     <include layout="@layout/content_help" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+
 
 </android.support.design.widget.CoordinatorLayout>

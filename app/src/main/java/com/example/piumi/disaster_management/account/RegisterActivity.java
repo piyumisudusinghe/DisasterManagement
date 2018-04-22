@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.piumi.disaster_management.MainActivity;
+import com.example.piumi.disaster_management.MyFirebaseInstanceIDService;
 import com.example.piumi.disaster_management.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -38,6 +39,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private Button btn_cancel;
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
+    private DatabaseReference dbref;
+    private String uid;
+    private  String user_firstname;
+    private  String user_lastname;
+
 
 
     @Override
@@ -49,8 +55,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         firebaseAuth = FirebaseAuth.getInstance();
         //create firebase database instance
         database = FirebaseDatabase.getInstance();
-        //get the mobile_user table  reference
-        databaseReference = database.getReference("mobile_user");
+
 
         TAG = RegisterActivity.class.getName();
 
@@ -93,15 +98,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         final String email = txtEmail.getText().toString().trim();
         String password = txtPwd.getText().toString().trim();
         String confirm_password = confirmPwd.getText().toString().trim();
-        final String firstname = firstName.getText().toString().trim();
-        final String lastname = lastName.getText().toString().trim();
+        user_firstname = firstName.getText().toString().trim();
+        user_lastname = lastName.getText().toString().trim();
 
-        if(TextUtils.isEmpty(firstname)){
+        if(TextUtils.isEmpty(user_firstname)){
             Toast.makeText(this,"Please enter first name",Toast.LENGTH_SHORT).show();
             return;
 
         }
-        if(TextUtils.isEmpty(lastname)){
+        if(TextUtils.isEmpty(user_lastname)){
             Toast.makeText(this,"Please enter last name",Toast.LENGTH_SHORT).show();
             return;
 
@@ -127,6 +132,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             Toast.makeText(this,"Please enter password again",Toast.LENGTH_SHORT).show();
             return;
         }
+        if(!password.equals ( confirm_password )){
+            Toast.makeText(this,"Please enter same password in the confirm password field",Toast.LENGTH_SHORT).show();
+            return;
+        }
 
 
 
@@ -138,22 +147,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // call the function to verify the given email address
-                            verifyEmail();
+                            verifyEmail(email);
                             Log.d(TAG, "createUserWithEmail:success");
-                            FirebaseUser user = firebaseAuth.getCurrentUser();
-                            String user_id = user.getUid();
-                            databaseReference = database.getReference("mobile_user/"+user_id);
-                            HashMap<String, String> map = new HashMap<String, String>();
-                            map.put("first_name",firstname);
-                            map.put("last_name",lastname);
-                            map.put("email",email);
 
-                            //add login detail to the database
-                            databaseReference.setValue(map);
-                            Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
-                            startActivity(intent);
-                            Toast.makeText(RegisterActivity.this, "You have registered successfully",
-                                    Toast.LENGTH_SHORT).show();
 
                         } else {
 
@@ -171,18 +167,46 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
 
     //do email verification when new user is login to the system
-    public void verifyEmail(){
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    public void verifyEmail( final String uemail){
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        final String uid = user.getUid ();
         if (user!= null){
             user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if(task.isSuccessful()){
                         Toast.makeText(RegisterActivity.this, "Check your Email for verification",Toast.LENGTH_SHORT).show();
-                        FirebaseAuth.getInstance().signOut();
+                        storeMobileUserDetails(uid,uemail);
+                    }else{
+                        user.delete();
+                        Toast.makeText(RegisterActivity.this, "You have entered an invalid email",Toast.LENGTH_SHORT).show();
                     }
                 }
             });
         }
+    }
+
+
+    public void storeMobileUserDetails(String uid, String uemail){
+
+        databaseReference = database.getReference("mobile_user/"+uid);
+        HashMap<String, String> map = new HashMap<String, String>();
+        map.put("first_name",user_firstname);
+        map.put("last_name",user_lastname);
+        map.put("email",uemail);
+
+        //add login detail to the database
+        databaseReference.setValue(map);
+        Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
+        startActivity(intent);
+
+        //store fcmtokens to the database
+        dbref = database.getReference ("fcmTokens_MobileUser");
+        HashMap<String, String> map1 = new HashMap<String, String>();
+        map1.put(uid,MyFirebaseInstanceIDService.token);
+        dbref.setValue(map1);
+        Toast.makeText(RegisterActivity.this, "You have registered successfully",
+                Toast.LENGTH_SHORT).show();
+
     }
 }

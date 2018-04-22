@@ -3,6 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.piumi.disaster_management">
 
+    <uses-sdk
+        android:minSdkVersion="16"
+        tools:overrideLibrary="com.sinch.android.rtc" />
+
+    <uses-feature
+        android:name="android.hardware.microphone"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
@@ -14,7 +29,8 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -23,6 +39,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!--
+     Set custom default icon. This is used when no icon is set for incoming notification messages.
+     See README(https://goo.gl/l4GJaQ) for more.
+        -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_notifications" />
+        <!--
+             Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/MainActivityName"
@@ -82,42 +114,54 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".account.LoginActivity">
+        <activity
+            android:name=".account.LoginActivity"
+            android:label="Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".account.RegisterActivity">
+        <activity
+            android:name=".account.RegisterActivity"
+            android:label="Register">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".account.ForgotPasswordActivity">
+        <activity
+            android:name=".account.ForgotPasswordActivity"
+            android:label="ForgotPassword">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".map.MapNewActivity">
+        <activity
+            android:name=".map.MapNewActivity"
+            android:label="Map">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".user_guide.Single_DisasterActivity">
+        <activity
+            android:name=".user_guide.Single_DisasterActivity"
+            android:label="SingleDisaster">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".question_forum.ChatMine">
+        <activity
+            android:name=".question_forum.ChatMine"
+            android:label="ChatMine">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -139,6 +183,42 @@
             </intent-filter>
         </activity>
         <activity android:name=".user_guide.DroughtActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service android:name=".MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".helpLine.HelpLine"
+            android:label="HelpLine"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".helpLine.CallHelpLine">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".map.Map">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

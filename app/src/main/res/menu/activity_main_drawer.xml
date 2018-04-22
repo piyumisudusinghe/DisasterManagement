@@ -28,8 +28,13 @@
 
         <item
             android:id="@+id/nav_help_line"
+            android:icon="@drawable/ic_action_phone_outgoing"
+            android:title="HelpLine" />
+
+        <item
+            android:id="@+id/nav_help"
             android:icon="@drawable/ic_help"
-            android:title="Help Line" />
+            android:title="Help" />
     </group>
 
     <item android:title="Communicate">
